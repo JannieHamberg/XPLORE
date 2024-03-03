@@ -4,7 +4,7 @@ export const LogoutButton = () => {
   const { logout } = useAuth0();
 
   return (
-    <button className="px-2" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+    <button className="px-10" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
       Log Out
     </button>
   );

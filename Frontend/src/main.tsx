@@ -3,9 +3,22 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './Router/Router.tsx'
+import { Auth0Provider } from '@auth0/auth0-react'
+import './Styles/main.scss'
+
+const domain = import.meta.env.VITE_AUTH0_DOMAIN || '';
+const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID || '';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Auth0Provider
+      domain={domain}
+      clientId={clientId}
+      authorizationParams={{
+        redirect_uri: window.location.origin
+      }}
+    >
+         <RouterProvider router={router} />
+    </Auth0Provider>
   </React.StrictMode>,
 )

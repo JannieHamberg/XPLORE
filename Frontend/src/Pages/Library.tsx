@@ -1,6 +1,6 @@
 
 
-export const Library = () => { 
+export const LibraryPage = () => { 
     return (
         <>Library</>
     )

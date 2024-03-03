@@ -1,15 +1,23 @@
+import { Search } from "./Search"
 
 export const LoggedInHome = () => {
 
     return (
-        <div className="diff aspect-[16/9]">
-        <div className="diff-item-1">
-          <div className="bg-primary text-primary-content text-9xl font-black grid place-content-center">Logged In Home</div>
+        <div>
+    <div className="flex items-center justify-center">
+        <div className="w-1/2 text-left pl-10">
+            <img className="pt-10 mx-auto" src="../../Images/peek_into_the_world.png" alt="Peek into the world of pixels" />
         </div>
-        <div className="diff-item-2">
-          <div className="bg-base-200 text-9xl font-black grid place-content-center">Logged In Home</div>
+        <div className="w-1/3 text-center">
+            <img className="rounded-lg size-72" src="../../Images/xploreLoggaPurpule.png" alt="Xplore Image Search" />
         </div>
-        <div className="diff-resizer"></div>
-      </div>
+            <div className="w-1/3 invisible">
+        </div>
+    </div>
+        <div className="flex items-center justify-center">
+            <Search />
+        </div>
+    </div>
+
     )
 }

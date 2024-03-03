@@ -8,7 +8,7 @@ export const Navbar = () => {
     const { isAuthenticated } = useAuth0();
 
     return (
-        <div className=" w-screen flex flex-row justify-end p-3 ">
+        <div className="navbar w-screen flex flex-row justify-end p-3 ">
          {isAuthenticated ? <LogoutButton /> : <LoginButton />   }
         <UserProfile />
         

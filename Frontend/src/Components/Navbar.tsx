@@ -14,7 +14,7 @@ export const Navbar = () => {
         <div className={navbarAuth}>
           <ul className="flex space-x-4">
                 <li>
-                    <a href="/" className="px-10">Home</a>
+                    <a href="/">Home</a>
                     </li>
                 <li>
                     <a href="/library">Library</a>

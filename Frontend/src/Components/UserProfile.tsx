@@ -6,11 +6,11 @@ export const UserProfile = () => {
             return <div>Loading...</div>
         }
             if (!isAuthenticated || !user ) {
-                return <div>Not Logged In</div>
+                return <div></div>
             }
         
         return (
-                <div>
+                <div className="mr-10">
                     <img className="btn-circle avatar" src={user.picture} alt={user.name} />
                     {/* <p>{user.name}</p> */}
                    {/*  <p>{user.email}</p> */}

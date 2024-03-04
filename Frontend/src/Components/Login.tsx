@@ -4,7 +4,7 @@ export const LoginButton = () => {
     const { loginWithRedirect } = useAuth0();
     return (
         <>
-        <button className="px-2" onClick={() => loginWithRedirect()}>Login</button>
+        <button onClick={() => loginWithRedirect()}>Login</button>
         </>
     )
 }

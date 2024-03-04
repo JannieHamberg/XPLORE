@@ -14,7 +14,7 @@ export const LoggedInHome = () => {
             <div className="w-1/3 invisible">
         </div>
     </div>
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center ml-32">
             <Search />
         </div>
     </div>

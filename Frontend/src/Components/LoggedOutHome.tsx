@@ -1,22 +1,32 @@
+import ReactBeforeSliderComponent from 'react-before-after-slider-component';
+import 'react-before-after-slider-component/dist/build.css';
+import firstImageSrc from '../assets/Images/img2_purple.png';
+import secondImageSrc from '../assets/Images/img1_white.png';
+import colorSwirl from '../assets/Images/color_swirl.png';
+
+const firstImage = {
+  imageUrl: firstImageSrc 
+}
+
+const secondImage = {
+  imageUrl: secondImageSrc
+}
 
 export const LoggedOutHome = () => {
     return (
-     
-        <div className="diff aspect-[16/9]">
-        <div className="diff-item-1">
-          <div className="diff-bg-purple text-primary-content text-9xl font-black grid place-content-center ">
-            <img className="diff-img-2 mx-8" src="../../Images/img2_purple.png" alt="" />
-            </div>
-          
-        </div>
-        <div className="diff-item-2">
-          <div className="bg-base-100 text-9xl font-black grid place-content-center">
-          <img className="diff-img-1 mx-8" src="../../Images/img1_white.png" alt="" />
-            </div>
-
-        </div>
-        <div className="diff-resizer"></div>
-      </div>
+      <div> 
+      <ReactBeforeSliderComponent
+          firstImage={firstImage}
+          secondImage={secondImage}
+          delimiterIconStyles={{
+            width: '50px',
+            height: '50px',
+            backgroundSize: 'cover',
+            borderRadius: 'none',
+            backgroundImage: `url(${colorSwirl})`
+          }}
+      />
+  </div>
       
     )
 }

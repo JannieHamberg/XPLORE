@@ -1,6 +1,9 @@
-
+* {
+    box-sizing: border-box;
+  }
+  
 body {
-    /* background-color: #e5e0ee; */
+   overflow-x: hidden;
 
     .diff-img-1,
     .diff-img-2 {

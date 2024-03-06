@@ -3,6 +3,9 @@ import 'react-before-after-slider-component/dist/build.css';
 import firstImageSrc from '../assets/Images/img2_purple.png';
 import secondImageSrc from '../assets/Images/img1_white.png';
 import colorSwirl from '../assets/Images/color_swirl.png';
+import { HomePageButton } from './HomePageButton';
+
+
 
 const firstImage = {
   imageUrl: firstImageSrc 
@@ -14,8 +17,9 @@ const secondImage = {
 
 export const LoggedOutHome = () => {
     return (
-      <div> 
+      <div className='slider-container'>
       <ReactBeforeSliderComponent
+          className='slider-component'
           firstImage={firstImage}
           secondImage={secondImage}
           delimiterIconStyles={{
@@ -26,6 +30,8 @@ export const LoggedOutHome = () => {
             backgroundImage: `url(${colorSwirl})`
           }}
       />
+      <HomePageButton />
+     
   </div>
       
     )

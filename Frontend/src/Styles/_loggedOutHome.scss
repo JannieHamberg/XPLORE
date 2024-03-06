@@ -5,16 +5,13 @@
 body {
    overflow-x: hidden;
 
-    .diff-img-1,
-    .diff-img-2 {
-        
+    .slider-container {
+        position: relative;
         width: 100%;
-        height: 100%;
-        
     }
 
-    .diff-bg-purple {
-        background-color: #180344;
-        
+    .slider-component{
+        width: 100%;
+        height: auto;
     }
 }

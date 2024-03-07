@@ -5,7 +5,7 @@ export const HomePageButton = () => {
     return (
         <>
         <button className="HomePageButton"
-                onClick={() => loginWithRedirect()}>LOGIN</button>
+                onClick={() => loginWithRedirect()}>Login</button>
         </>
     )
 }

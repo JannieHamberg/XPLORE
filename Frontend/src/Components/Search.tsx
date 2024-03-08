@@ -1,20 +1,25 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
     interface IImage {
         link: string;
         title: string;
+        spelling: {
+            correctedQuery: string;
+        }
     }
     
    export const Search: React.FC = () => {
-        const [searchInput, setSearchInput] = useState<string>('');
-        const [searchResult, setSearchResult] = useState<IImage[]>([]);
-        const [isLoading, setIsLoading] = useState<boolean>(false);
-        const [error, setError] = useState<string | null>(null);
         const { isAuthenticated } = useAuth0();
+        const [isLoading, setIsLoading] = useState<boolean>(false);
+        const [searchInput, setSearchInput] = useState<string>('');
+        const [spellingSuggestions, setSpellingSuggestions] = useState<string | null>(null);
+        const [searchResult, setSearchResult] = useState<IImage[]>([]);
+        const [error, setError] = useState<string | null>(null);
+      
 
-        const handleSearch = async () => {
+        const handleSearch = async (input: string) => {
             if (!isAuthenticated) {
                 alert('Please log in to explore the world of pixel galaxy!');
                 return;
@@ -22,17 +27,22 @@ import React, { useState } from "react";
             setIsLoading(true);
             setError(null);
             
+            
             try {
                 const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
                     params: {
                         key: import.meta.env.VITE_GOOGLE_API_KEY,
                         cx: import.meta.env.VITE_GOOGLE_CX,
-                        q: searchInput,
+                        q: input,
                         searchType: 'image',
                         num: 9,
                     },
                 });
-                console.log(response.data);
+                
+                if (response.data.spelling && response.data.spelling.correctedQuery) {
+                    setSpellingSuggestions(response.data.spelling.correctedQuery);
+                }
+                
                 setSearchResult(response.data.items);
 
             } catch (error) {
@@ -60,7 +70,7 @@ import React, { useState } from "react";
             />
             <button
                 className="rounded-md border-2 w-24 bg-custom-purple text-white p-1 font-sans text-sm"
-                onClick={handleSearch}
+                onClick={() => handleSearch(searchInput)}
             >
                 search
             </button>
@@ -71,6 +81,15 @@ import React, { useState } from "react";
                 </div>
             )}
             {error && <p>Error: {error}</p>}
+            {spellingSuggestions && (
+                <p className="text-center my-2">
+                    Did you mean: <button className="" onClick={() => {
+                        setSearchInput(spellingSuggestions);
+                        setSpellingSuggestions(null);
+                        handleSearch(spellingSuggestions);
+                    }}>{spellingSuggestions}</button>
+                </p>
+            )}
             <div className="w-3/4 justify-center grid grid-cols-3 gap-3 mx-auto">
             {searchResult.map((image, index) => (
                 <div key={index} className="columns-3xs">

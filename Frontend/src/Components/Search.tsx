@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
     interface IImage {
         link: string;
@@ -17,17 +17,21 @@ import React, { useEffect, useState } from "react";
         const [spellingSuggestions, setSpellingSuggestions] = useState<string | null>(null);
         const [searchResult, setSearchResult] = useState<IImage[]>([]);
         const [error, setError] = useState<string | null>(null);
-      
+        const [searchTime, setSearchTime] = useState<number | null>(null);
 
+        const handleImageError = (errorIndex: number) => {
+            setSearchResult(prevImages => prevImages.filter((_, i) => i !== errorIndex))
+        };
+      
         const handleSearch = async (input: string) => {
             if (!isAuthenticated) {
                 alert('Please log in to explore the world of pixel galaxy!');
                 return;
             }
+            const startTimer = Date.now();
             setIsLoading(true);
             setError(null);
-            
-            
+            console.log('searching for', input);
             try {
                 const response = await axios.get(`https://www.googleapis.com/customsearch/v1`, {
                     params: {
@@ -37,12 +41,12 @@ import React, { useEffect, useState } from "react";
                         searchType: 'image',
                         num: 9,
                     },
-                });
+                    
+                }); 
                 
                 if (response.data.spelling && response.data.spelling.correctedQuery) {
                     setSpellingSuggestions(response.data.spelling.correctedQuery);
                 }
-                
                 setSearchResult(response.data.items);
 
             } catch (error) {
@@ -55,6 +59,8 @@ import React, { useEffect, useState } from "react";
                 }
             } finally {
                 setIsLoading(false);
+                const endTimer = Date.now();
+                setSearchTime(endTimer - startTimer);
             }
         };
         
@@ -96,11 +102,14 @@ import React, { useEffect, useState } from "react";
                 <img
                     src={image.link}
                     alt={image.title}
+                    onError={() => handleImageError(index)} 
                     className="w-full object-cover rounded-sm shadow-xl"
                 />
                 </div>
             ))}
         </div>
+            {searchTime &&
+                <p className="text-center my-10">Your cosmic pixel quest flashed by in a mere {searchTime} milliseconds!</p>}
     </div>
     );
 };

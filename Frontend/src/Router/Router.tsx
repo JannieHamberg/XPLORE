@@ -13,10 +13,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />,
-                index: true
+                index: true,
             },
             {
-                path: "/Library",
+                path: "/library",
                 element: <LibraryPage />
             }
 

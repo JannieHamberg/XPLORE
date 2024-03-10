@@ -21,7 +21,7 @@ export const LoggedInHome = () => {
             <img className="pt-10 mx-auto" src="../../Images/peek_into_the_world.png" alt="Peek into the world of pixels" />
         </div>
         <div className="w-1/3 text-center">
-            <img className="rounded-lg size-72" src="../../Images/xploreLoggaPurpule.png" alt="Xplore Image Search" />
+            <img className="logo-loggedin size-72" src="../../Images/xploreLoggaPurpule.png" alt="Xplore Image Search" />
         </div>
             <div className="w-1/3 invisible">
         </div>

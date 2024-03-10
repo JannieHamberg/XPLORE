@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { LogoutButton } from "./LogOut"
 import { LoginButton } from "./Login";
 import { UserProfile } from "./UserProfile"
+import { NavLink } from "react-router-dom";
 
 export const Navbar = () => { 
     const { isAuthenticated } = useAuth0();
@@ -15,10 +16,10 @@ export const Navbar = () => {
             
           <ul className="flex space-x-4">
                 <li>
-                    <a href="/">Home</a>
+                    <NavLink to="/">Home</NavLink>
                     </li>
                 <li>
-                    <a href="/library">Library</a>
+                    <NavLink to="/library">Library</NavLink>
                     </li>
                 <li>
                 {isAuthenticated ? <LogoutButton /> : <LoginButton />   }

@@ -1,8 +1,9 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import React, { useState } from "react";
+import { useFavorites } from "../Models/FavoritesContext";
 
-    interface IImage {
+  export  interface IImage {
         link: string;
         title: string;
         spelling: {
@@ -18,6 +19,9 @@ import React, { useState } from "react";
         const [searchResult, setSearchResult] = useState<IImage[]>([]);
         const [error, setError] = useState<string | null>(null);
         const [searchTime, setSearchTime] = useState<number | null>(null);
+        
+        const { addFavorite } = useFavorites();
+
 
         const handleImageError = (errorIndex: number) => {
             setSearchResult(prevImages => prevImages.filter((_, i) => i !== errorIndex))
@@ -63,6 +67,7 @@ import React, { useState } from "react";
                 setSearchTime(endTimer - startTimer);
             }
         };
+   
         
     return (
         <div>
@@ -97,7 +102,7 @@ import React, { useState } from "react";
                 </p>
             )}
             <div className="w-3/4 justify-center grid grid-cols-3 gap-3 mx-auto">
-            {searchResult.map((image, index) => (
+            {searchResult.map((image, index: number) => (
                 <div key={index} className="columns-3xs">
                 <img
                     src={image.link}
@@ -105,11 +110,13 @@ import React, { useState } from "react";
                     onError={() => handleImageError(index)} 
                     className="w-full object-cover rounded-sm shadow-xl"
                 />
+                <button onClick={() => addFavorite(image)}>Save</button>
                 </div>
             ))}
         </div>
             {searchTime &&
                 <p className="text-center my-10">Your cosmic pixel quest flashed by in a mere {searchTime} milliseconds!</p>}
+                    
     </div>
     );
 };

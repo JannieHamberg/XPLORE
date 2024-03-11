@@ -8,14 +8,14 @@ export const Footer = () => {
     const { isAuthenticated } = useAuth0();
 
     return (
-        <div className="flex items-center justify-center mt-40 bg-custom-purple ">
-            <div className=" w-1/3 pl-20 text-white text-center pt-20">
+        <div className="flex flex-col-reverse items-center justify-center mt-40 bg-custom-purple px-5 py-5 md:flex-row md:p-20 ">
+            <div className="w-full md:w-1/3 text-white text-center pt-4 pb-4 md:pt-0">
             <FontAwesomeIcon icon={faFacebook} size="2xl" className="px-4 pt-4"/>
             <FontAwesomeIcon icon={faInstagram} size="2xl" />
             <FontAwesomeIcon icon={faSquareXTwitter} size="2xl" className="px-4"/>
             <p className="pt-8">© copyright all rights reserved 2024</p>
             </div>
-            <div className=" w-1/3 text-center text-white">
+            <div className="w-full md:w-1/3 text-white text-center pt-0 md:pt-4 md:pb-0">
                 <ul className="text-lg leading-loose">
                     <li>
                         <a href="#">Contact</a>
@@ -32,8 +32,8 @@ export const Footer = () => {
                 </ul>
                 
                 </div>
-            <div className=" w-1/3 text-right pr-20">
-                <img src="../../Images/xploreLoggaPurpule.png" alt="logo" />
+            <div className="w-full md:w-1/3 text-white text-right pb-0 md:py-4">
+                <img src="../../Images/xploreLoggaPurpule.png" alt="logo" className="mx-auto  h-64 w-auto object-contain"/>
             </div>
         </div>
     )

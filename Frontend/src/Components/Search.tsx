@@ -75,7 +75,7 @@ import { IImage } from "../Models/IImage";
                 onChange={(e) => setSearchInput(e.target.value)}
             />
             <button
-                className="rounded-md border-2 w-1/5 bg-custom-purple text-white p-1 font-sans text-sm hover:bg-blue-700"
+                className="rounded-md border-2 w-1/5 bg-custom-purple text-white  font-sans text-lg hover:bg-purple-700 text-center p-px"
                 onClick={() => handleSearch(searchInput)}
             >
                 search
@@ -99,14 +99,15 @@ import { IImage } from "../Models/IImage";
             )}
             <div className="w-full sm:w-3/4  justify-center grid   grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-4 max-w-[400px] md:max-w-[600px] place-items-center mx-auto">
             {searchResult.map((image, index: number) => (
-                <div key={index} className="">
+                <div key={index} className="relative group">
                 <img
                     src={image.link}
                     alt={image.title}
                     onError={() => handleImageError(index)} 
                     className=" h-48 w-96 object-cover rounded-lg shadow-xl hover:opacity-75"
                 />
-                <button className="text-white" onClick={() => addFavorite(image)}>Save</button>
+                <div className="absolute inset-0 bg-white bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-300"></div> 
+                <button className="text-white font-medium absolute bottom-0 left-0 p-2 rounded-m hover:text-purple-700 hover:font-bold hover:text-lg" onClick={() => addFavorite(image)}>Save</button>
                 </div>
             ))}
         </div>

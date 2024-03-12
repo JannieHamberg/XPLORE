@@ -21,15 +21,26 @@ interface FavoritesProviderProps {
 
 export const FavoritesProvider: React.FC<FavoritesProviderProps> = ({ children }) => {
     const [favorites, setFavorites] = useState<IImage[]>([]);
+    const [showToast, setShowToast] = useState<boolean>(false);
 
     const addFavorite = (image: IImage) => {
         setFavorites((prevFavorites) => [...prevFavorites, image]);
-        console.log('added', image);
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 6000);
     };
 
     return (
         
         <FavoritesContext.Provider value={{ favorites, addFavorite }}>
+            {showToast && (
+                <div className="success-toast toast toast-middle">
+                    <div className="alert">
+                        <div>
+                            <span>Saved in faves! You’ve got great taste!</span>
+                        </div>
+                    </div>
+                </div>
+            )}
             {children}
         </FavoritesContext.Provider>
     )

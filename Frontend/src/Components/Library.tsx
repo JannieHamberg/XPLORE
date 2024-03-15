@@ -5,11 +5,11 @@ export const Library = () => {
   return (
     <div className="mt-10">
       <div className="w-3/4 justify-center grid grid-cols-3 gap-3 mx-auto">
-      {favorites.map((fav, index: number) => (
+      {favorites && favorites.map((fav, index: number) => (
         <div key={index} className="columns-3xs">
           <img 
-            src={fav.link} 
-            alt={fav.title} 
+            src={fav}
+            alt={fav} 
             className="w-full object-cover rounded-sm shadow-xl" />
         </div>
         

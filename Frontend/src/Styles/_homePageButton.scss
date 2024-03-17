@@ -1,8 +1,4 @@
 .HomePageButton {
-  /*   position: absolute; */
-    /* z-index: 10; */
-   /*  top: 95%;
-    left: 5%; */
     background-color: #702fb9;
     color: white;
     font-size: 1.5em;
@@ -21,4 +17,20 @@
 
 .HomePageButton:hover {
     background-color: #34a612;
+}
+
+.HomePageButton2 {
+  background-color: #702fb9;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 10px 8px;
+    width: 70%;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.HomePageButton2:hover {
+  background-color: #34a612;
 }

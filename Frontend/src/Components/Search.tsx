@@ -3,6 +3,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useFavorites } from "../Models/FavoritesContext";
 import { IImage } from "../Models/IImage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
     
    export const Search: React.FC = () => {
@@ -107,7 +109,9 @@ import { IImage } from "../Models/IImage";
                     className=" h-48 w-96 object-cover rounded-lg shadow-xl hover:opacity-75"
                 />
                 <div className="absolute inset-0 bg-white bg-opacity-0 group-hover:bg-opacity-60 transition-opacity duration-300"></div> 
-                <button className="text-white font-medium absolute bottom-0 left-0 p-2 rounded-m hover:text-purple-700 hover:text-lg" onClick={() => addFavorite(image)}>Save</button>
+                <button className="text-white font-medium absolute bottom-0 left-0 p-2 rounded-m hover:text-purple-700 hover:text-lg" onClick={() => addFavorite(image)}>
+                <FontAwesomeIcon icon={faBookmark} />
+                </button>
                 </div>
             ))}
         </div>

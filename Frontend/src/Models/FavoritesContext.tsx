@@ -46,7 +46,7 @@ export const FavoritesProvider: React.FC<FavoritesProviderProps> = ({ children }
             .then(response => setFavorites(response.data))
             .catch(error => console.log(error));
         }
-      }, [user?.sub]);
+      }, [user?.sub, favorites]);
       
 
     return (

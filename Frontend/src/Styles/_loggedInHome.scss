@@ -1,23 +1,29 @@
-.helloContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+    font-family: 'Prompt', sans-serif;
+  
+  
+
+        .helloContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
 
 
 
-    .helloUser {
-       
-        font-weight: bold;
-        margin-bottom: 1rem;
+            .helloUser {
+            
+                font-weight: bold;
+                margin-bottom: 1rem;
 
-    }
+            }
 
-}
+        }
 
-.alert {
-    background-color: #662eb5 ;
-    color: white;
-    font-weight: bold;
+        .alert {
+            background-color: #662eb5 ;
+            color: white;
+            font-weight: bold;
+        }
 }
 

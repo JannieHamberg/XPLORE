@@ -17,7 +17,7 @@ export const Library = () => {
     <div>
       <div className="helloContainer text-center flex flex-col items-center justify-center sm:flex-row sm:flex-wrap ">
         <div className=" helloDiv w-full lg:w-6/12 flex justify-center items-center">
-        <h3 className="helloUser  flex-1 w-100 text-xl sm:text-2xl md:text-3xl lg:text-4xl mx-auto ">
+        <h3 className="helloUser  flex-1 w-100 text-2xl sm:text-2xl md:text-3xl lg:text-4xl mx-auto ">
           Step into <br /> your sanctuary <br />  of  snapshots, <br /> {colorful}!
         </h3>
         </div>

@@ -6,19 +6,19 @@
 
     @media (max-width: 768px) { 
         width: 100vw; 
-        height: 450px; 
+        height: 300px; 
       }
     
             .catContainer {
                 position: relative;
             
-                height: 450px;
+                height: 300px;
                 width: 50vw;
                 overflow: hidden;
                 
                     @media (max-width: 768px) { 
                         width: 100vw; 
-                        height: 450px; 
+                        height: 350px; 
                     }
             }
             
@@ -36,7 +36,9 @@
 
                     @media (max-width: 768px) { 
                         top: 0;
-                        left: 0;
+                        left: 150px;
+                        height: 150px;
+                        width: 250px;
                     }
             }
 }

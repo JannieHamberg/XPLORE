@@ -17,7 +17,7 @@
 
 ## About The Project
 
-![Screen Shot](https://i.ibb.co/0yT3QbG/img1234.png
+![Screen Shot](https://i.ibb.co/qMgZ2pK/Sk-rmbild-2024-03-20-094535.png
 )
 
 This application is a straightforward yet functional platform designed as a part of our school project. It features user authentication with Google or GitHub via Auth0, allowing personalized access to the application's main features.
